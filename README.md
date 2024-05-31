@@ -82,7 +82,60 @@ undefined:
 symbol:
 
 ==> non-primitive data type:
-object:
+object: The object data type can contain both built-in objects, and user defined objects:
+
+Built-in object types can be:
+
+objects, arrays, dates, maps, sets, intarrays, floatarrays, promises, and more.
+
+Operators :
+There are following types of operators in JavaScript.
+
+Arithmetic Operators(+,-,*,/,%,++,--)
+Comparison (Relational) Operators(== , === , != , !== , > , >= , < , <= )
+Bitwise Operators (&, | , ^(bitwise XOR) , ~(bitwise Not) , << (bitwise left shift),(>>) , >>>
+Logical Operators ( && , || , ! )
+Assignment Operators ( = , += , -= , *=, /=, %= )
+Special Operators : (?:)(conditional Operator), (,) , delete , in , instanceof, new , typeof,void,yield
+
+
+control flow:
+If Statement
+Using If-Else Statement
+Using Switch Statement
+Using the Ternary Operator (Conditional Operator)
+Using For loop
+while loop
+do...while loop
+
+functions: In JavaScript, a function is defined using the function keyword, followed by the name of the function and parentheses. Optionally, you can include a list of input parameters within the parentheses. The code block that needs to be executed when the function is called is written within curly braces {}.
+
+function sayHello() {
+  console.log("Hello, World!");
+}
+sayHello();
+
+function addNumbers(num1, num2) {
+  let sum = num1 + num2;
+  console.log("The sum is: " + sum);
+}
+addNumbers(5, 3);
+
+let greet = function() {
+  console.log("Hello!");
+};
+
+greet();
+
+setTimeout(function() {
+  console.log("This is a callback function.");
+}, 2000);
+
+
+
+
+
+
   
 
 
