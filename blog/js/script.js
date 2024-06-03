@@ -2,7 +2,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
   import { getAuth ,signInWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  import {getDatabase,set,ref,get} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  import {getDatabase,set,ref,get,remove,update} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -79,6 +79,8 @@ const notify = document.querySelector('.notifiy');
     notify.innerHTML="data Added"
     document.querySelector("#title").value="";
     document.querySelector("#post_content").value="";
+
+    GetPostData();
   }
 
   add_post_Btn.addEventListener('click',Add_Post);
@@ -110,3 +112,40 @@ const notify = document.querySelector('.notifiy');
     })
  }
  GetPostData();
+
+ //delete_data
+
+ window.delete_data=function(key){
+  
+  remove(ref(db,`post/${key}`))
+  notify.innerHTML="data Deleted"
+  GetPostData()
+
+ }
+
+
+ //get and update data
+
+ window.update_data=function(key){
+  const user_ref=ref(db,`post/${key}`)
+  get(user_ref).then((item)=>{
+    document.querySelector('#title').value=item.val().title;
+    document.querySelector('#post_content').value=item.val().post_content;
+  })
+    const update_btn=document.querySelector('.update_btn');
+    update_btn.classList.add('show');
+    document.querySelector('.post_btn').classList.add('hide');
+
+    //Update
+    function update_Form(){
+      const title=document.querySelector('#title').value;
+      const post_content=document.querySelector('#post_content').value;
+
+      update(ref(db,`post/${key}`),{
+        title:title,
+        post_content:post_content
+      })
+    }
+    GetPostData();
+    update_btn.addEventListener('click',update_Form)
+ }
