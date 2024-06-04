@@ -131,6 +131,19 @@ setTimeout(function() {
   console.log("This is a callback function.");
 }, 2000);
 
+Major Uses of the querySelector() Method
+
+The querySelector() method is a powerful tool in JavaScript that allows you to select and manipulate elements in the DOM (Document Object Model) based on CSS selectors. Here are some major uses of the querySelector() method:
+
+Selecting Elements: The primary use of querySelector() is to select elements from the DOM using CSS selectors. It returns the first element that matches the specified selector. For example, document.querySelector("#myElement") selects the first element with the ID "myElement" 
+.
+Manipulating Styles: Once you have selected an element using querySelector(), you can manipulate its styles using the style property. For example, document.querySelector("#myElement").style.backgroundColor = "red" sets the background color of the selected element to red 
+.
+Adding Event Listeners: You can use querySelector() to select an element and then attach event listeners to it. This allows you to respond to user interactions, such as clicks or key presses. For example, document.querySelector("#myButton").addEventListener("click", myFunction) adds a click event listener to the element with the ID "myButton".
+
+Traversing the DOM: querySelector() can be used to navigate the DOM by selecting elements based on their relationship to other elements. For example, document.querySelector("#myElement .myClass") selects the first element with the class "myClass" that is a descendant of the element with the ID "myElement".
+
+Dynamic Content Manipulation: With querySelector(), you can select elements and modify their content dynamically. For example, document.querySelector("#myElement").textContent = "New content" changes the text content of the selected element to "New content"
 
 
 
