@@ -146,11 +146,79 @@ Traversing the DOM: querySelector() can be used to navigate the DOM by selecting
 Dynamic Content Manipulation: With querySelector(), you can select elements and modify their content dynamically. For example, document.querySelector("#myElement").textContent = "New content" changes the text content of the selected element to "New content"
 
 
+querySelectorAll() method:
+The Document method querySelectorAll() returns a static (not live) NodeList representing a list of the document's elements that match the specified group of selectors.
+
+It's important to note that querySelectorAll() returns a static NodeList, which means it doesn't update automatically when the DOM changes. If you need a live collection that reflects the current state of the DOM, you can use other methods like getElementsByClassName() or getElementsByTagName() 
+.
 
 
-
+createElement() method:
+In an HTML document, the document.createElement() method creates the HTML element specified by tagName, or an HTMLUnknownElement if tagName isn't recognized.
   
+syntax:createElement(tagName)
+createElement(tagName, options)
+ex:<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Working with elements</title>
+  </head>
+  <body>
+    <div id="div1">The text above has been created dynamically.</div>
+  </body>
+</html>
 
+document.body.onload = addElement;
+
+function addElement() {
+  // create a new div element
+  const newDiv = document.createElement("div");
+
+  // and give it some content
+  const newContent = document.createTextNode("Hi there and greetings!");
+
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);
+
+  // add the newly created element and its content into the DOM
+  const currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
+}
+
+Element.innerHTML
+
+The Element.innerHTML property is used to get or set the HTML content (inner HTML) of an element in JavaScript. It allows you to read the HTML markup contained within an element or replace it with new HTML content.
+
+// HTML code
+<div id="myElement">Hello, <strong>World!</strong></div>
+
+// JavaScript code
+const element = document.getElementById('myElement');
+console.log(element.innerHTML); // Output: Hello, <strong>World!</strong>
+
+element.innerHTML = 'Goodbye, <em>World!</em>';
+console.log(element.innerHTML); // Output: Goodbye, <em>World!</em>
+
+Element: setAttribute() method:
+
+The setAttribute() method of the Element interface sets the value of an attribute on the specified element. If the attribute already exists, the value is updated; otherwise a new attribute is added with the specified name and value.
+
+To get the current value of an attribute, use getAttribute(); to remove an attribute, call removeAttribute().
+
+getAttribute() method
+The getAttribute() method of the Element interface returns the value of a specified attribute on the element.
+If the given attribute does not exist, the value returned will be null.
+
+an attribute refers to a specific characteristic or property of an HTML element. Attributes are defined within the opening tag of an HTML element and provide additional information about the element.
+
+
+EventTarget: addEventListener() method:
+The addEventListener() method of the EventTarget interface sets up a function that will be called whenever the specified event is delivered to the target.
+
+addEventListener(type, listener)
+addEventListener(type, listener, options)
+addEventListener(type, listener, useCapture)
 
 
 
